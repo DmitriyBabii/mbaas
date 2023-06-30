@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Create place</title>
+</head>
+<body>
+<div th:replace="~{fragments/header.html :: header}"></div>
+
+<div class="content">
+    <form method="post">
+        <h1>Create place</h1>
+        <input name="name" placeholder="Name" required>
+        <textarea name="description" placeholder="Description" required></textarea>
+        <input name="picture" placeholder="Picture url" type="text" required>
+        <textarea name="meta" placeholder="Meta" required></textarea>
+        <input name="latitude" placeholder="Position latitude">
+        <input name="longitude" placeholder="Position longitude">
+        <select name="coord" required>
+            <option value="Current">Current</option>
+            <option value="Input">Input</option>
+        </select>
+        <button class="btn">Create</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Registration</title>
+</head>
+<body>
+<div th:replace="~{fragments/header.html :: header}"></div>
+
+<div class="content">
+    <form method="post">
+        <h1>Registration</h1>
+        <p class="error" th:if="${error}">This user is already exists</p>
+        <input name="name" placeholder="Name" required>
+        <input name="email" placeholder="Email" type="email" required>
+        <input name="password" placeholder="Password" minlength="8" type="password" required>
+        <input name="age" placeholder="Age" type="number" required>
+        <input name="country" placeholder="Country" type="text" required>
+        <select name="sex" required>
+            <option value="Man">Man</option>
+            <option value="Woman">Woman</option>
+        </select>
+        <button class="btn">Sign in</button>
+        <a th:href="@{/remake-password}">Forgot password</a>
+    </form>
+</div>
+</body>
+</html>

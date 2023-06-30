@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Remake password</title>
+</head>
+<body>
+<div th:replace="~{fragments/header.html :: header}"></div>
+
+<div class="content">
+    <form method="post" th:action="@{/my-files/upload}" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button>Upload</button>
+    </form>
+    <div class="file-container">
+        <div class="file" th:each="file : ${files}" th:object="${file}">
+            <a th:href="*{content}" th:text="*{name}"></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

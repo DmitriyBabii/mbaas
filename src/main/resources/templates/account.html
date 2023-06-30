@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Account</title>
+</head>
+<body>
+<div th:replace="~{fragments/header.html :: header}"></div>
+
+<div class="content">
+    <form class="account" method="post" th:object="${user}">
+        <img class="account-image" th:if="*{getProperty('pictureUrl') == null}" th:src="@{/images/acc.jpg}">
+        <img class="account-image" th:if="*{getProperty('pictureUrl') != null}" th:src="*{getProperty('pictureUrl')}">
+        <a class="choose-image" th:href="@{/account/choose-image}">Choose image</a>
+        <div th:text='|Name: *{getProperty("name")}|'></div>
+        <div th:text='|Email: *{getProperty("email")}|'></div>
+        <div th:text='|Age: *{getProperty("age")}|'></div>
+        <input name="age" placeholder="New age" type="number" required>
+        <div th:text='|Country: *{getProperty("country")}|'></div>
+        <input name="country" placeholder="New country" type="text" required>
+        <div th:text='|Sex: *{getProperty("sex")}|'></div>
+        <select name="updateGeo" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <button class="btn">Update</button>
+    </form>
+    <form th:action="@{/account/exit}" method="post">
+        <button class="btn">Exit</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <title>Request friends</title>
+</head>
+<body>
+<div th:replace="~{fragments/header.html :: header}"></div>
+
+<div class="content">
+  <div class="friend-container">
+    <div class="file" th:each="user : ${users}" th:object="${user}">
+      <a th:text="*{name}"></a>
+      <div class="manipulations">
+        <form method="post" th:action="@{/friends/requests/confirm/{id}(id=*{id})}">
+          <button>Confirm</button>
+        </form>
+        <form method="post" th:action="@{/friends/requests/remove/{id}(id=*{id})}">
+          <button>Remove</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

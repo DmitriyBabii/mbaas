@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Location</title>
+</head>
+<body>
+<div th:replace="~{fragments/header.html :: header}"></div>
+
+<div class="content">
+    <form method="post">
+        <input type="text" name="location" placeholder="Location search">
+        <button>Find</button>
+    </form>
+    <a th:href="@{/location/create}">Create new place</a>
+    <h2 th:if="${!find}">My locations</h2>
+    <h2 th:if="${find}">Find</h2>
+    <div class="place-container">
+        <div class="file" th:each="place : ${places}" th:object="${place}">
+            <a class="container" th:href="@{/location/{name}(name=*{name})}">
+                <img class="location" style="height: 60px;" th:if="*{pictureUrl != null}" th:src="*{pictureUrl}">
+                <a th:text="*{name}"></a>
+            </a>
+            <div class="manipulations">
+                <form method="post" th:action="@{/location/remove/{name}(name=*{name})}" th:if="${!find}">
+                    <button>Remove</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

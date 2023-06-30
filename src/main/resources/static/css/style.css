@@ -1,0 +1,120 @@
+:root{
+    --header-color: #303030;
+    --header-height: 70px;
+    --content-h-padding: 70px;
+    --content-v-padding: calc(var(--content-h-padding) / 2);
+    --form-width: 300px;
+    --btn-color: #e00027;
+}
+
+*{
+    font-family: 'Helvetica';
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    height: var(--header-height);
+    background-color: var(--header-color);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 50px;
+}
+
+form{
+    margin: auto;
+    width: var(--form-width);
+    padding: 5px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, select{
+    height: 25px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+button{
+    background-color: var(--btn-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+}
+
+.header-link{
+    color: white;
+    font-size: 20px;
+}
+
+.content{
+    padding: var(--content-v-padding);
+    padding-left: var(--content-h-padding);
+    padding-right: var(--content-h-padding);
+}
+
+.file-container, .friend-container, .place-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.file{
+    height: 50px;
+    background-color: #DFEFEF;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.manipulations{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    width: 600px;
+}
+
+.manipulations > form{
+    width: 100%;
+}
+
+.error{
+    color: red;
+}
+
+.account-image{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.choose-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+img.location{
+    height: 60px;
+}
